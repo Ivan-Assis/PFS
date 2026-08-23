@@ -1,5 +1,6 @@
 import type { Aluno } from "./types/Aluno";
 import AlunoCard from "./components/AlunoCard";
+import {useState} from "react"
 //no caso aqui vc so criou um array de alunos e fez o que em outras linguagens seria um foreach, mas aqui é map
 //declarou o array
 const alunos: Aluno[] = [
@@ -23,6 +24,14 @@ const alunos: Aluno[] = [
   },
 ];
 
+const[alunosUseState,setAlunosUseState] = useState<Aluno[]>([
+  {
+    id: 0,
+    nome: "indefinido",
+    matricula: 0,
+    curso: "indefinido",
+  },
+])
 function App() {
   return (
     <main>
