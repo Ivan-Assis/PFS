@@ -1,23 +1,19 @@
 import type { Aluno } from "../types/Aluno";
 
-interface AlunoCardProps{
-    aluno: Aluno;
-    onRemover:(id: number) => void;
+interface AlunoCardProps {
+  aluno: Aluno;
+  onRemoverAluno: (id: number) => void;
 }
 
-function AlunoCard({aluno}: AlunoCardProps)
-{
-    return(
-        <div>
-            <h2>
-                {aluno.nome}
-            </h2>
-            <p>
-                MAtrícula: {aluno.matricula}
-            </p>
-            <p>{aluno.curso}</p>
-        </div>
-    )
+function AlunoCard({ aluno, onRemoverAluno }: AlunoCardProps) {
+  return (
+    <div>
+      <h2>{aluno.nome}</h2>
+      <p>Matrícula: {aluno.matricula}</p>
+      <p>{aluno.curso}</p>
+      <button onClick={() => onRemoverAluno(aluno.id)}>REMOVER ALUNO</button>
+    </div>
+  );
 }
 
 export default AlunoCard;

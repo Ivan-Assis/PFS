@@ -1,8 +1,7 @@
 import type { Aluno } from "./types/Aluno";
 import AlunoCard from "./components/AlunoCard";
 import { useState } from "react";
-//no caso aqui vc so criou um array de alunos e fez o que em outras linguagens seria um foreach, mas aqui é map
-//declarou o array
+
 const alunosIniciais: Aluno[] = [
   {
     id: 1,
@@ -11,7 +10,7 @@ const alunosIniciais: Aluno[] = [
     curso: "curso 1",
   },
   {
-    id: 2,
+    id:2,
     nome: "nome 2",
     matricula: 2,
     curso: "curso 2",
@@ -25,22 +24,19 @@ const alunosIniciais: Aluno[] = [
 ];
 
 function App() {
-
-  function removerAluno(id: number)
-  {
-    setAlunos(alunos.filter(aluno) => aluno.id !== id);
-  }
-
-
   const [alunos, setAlunos] = useState<Aluno[]>(alunosIniciais);
+  const removerAluno = (id: number) => {
+    setAlunos((listaSubstituida) => listaSubstituida.filter((aluno) => aluno.id !== id));
+  };
+
+
   return (
     <main>
       <h1>Lista de Alunos</h1>
       <div>
         {alunos.map((aluno) => (
-          <AlunoCard key={aluno.id} aluno={aluno} onRemover={removerAluno}/>
+          <AlunoCard key={aluno.id} aluno={aluno} onRemoverAluno={removerAluno} />
         ))}
-        <button onClick={() => onRemover(aluno.id)}>Remover</button>
       </div>
     </main>
   );
