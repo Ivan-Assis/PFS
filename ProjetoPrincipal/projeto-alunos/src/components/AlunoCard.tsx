@@ -2,6 +2,7 @@ import type { Aluno } from "../types/Aluno";
 
 interface AlunoCardProps{
     aluno: Aluno;
+    onRemover:(id: number) => void;
 }
 
 function AlunoCard({aluno}: AlunoCardProps)
